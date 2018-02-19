@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <title>DfE Sign-in Angular 1.x sample client</title>
 </head>
-<body>
+<body ng-app="app">
+<h1>Sample Angular 1.x OIDC Client</h1>
+<div>
+    <ui-view></ui-view>
+</div>
+
+<!-- Libs -->
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+<script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
+
+<!-- App -->
+<script src="app.js"></script>
+<script src="WhoAmI/index.controller.js"></script>
+<script src="Auth/authrequired.controller.js"></script>
+<script src="app-services/authentication.service.js"></script>
 </body>
 </html>
