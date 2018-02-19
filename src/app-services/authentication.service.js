@@ -28,8 +28,10 @@
       }
 
       var user = JSON.parse(idToken.payload);
-      user.name = user.given_name + ' ' + user.family_name;
-      $sessionStorage.user = user;
+      if ($sessionStorage.nonce === user.nonce) {
+        user.name = user.given_name + ' ' + user.family_name;
+        $sessionStorage.user = user;
+      }
     }
 
     function User() {
