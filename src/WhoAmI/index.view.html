@@ -1,1 +1,17 @@
 <h2>{{vm.salutation}} {{vm.name}}</h2>
+<h3>Claims</h3>
+<table>
+    <thead>
+    <tr>
+        <th>Key</th>
+        <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="claim in vm.claims">
+        <td>{{claim.key}}</td>
+        <td>{{claim.value}}</td>
+    </tr>
+    </tbody>
+</table>
+<div><a href="/#!/signout">Sign-Out</a></div>

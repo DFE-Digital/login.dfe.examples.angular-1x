@@ -12,6 +12,7 @@
 
     service.ProcessAuthCallback = ProcessAuthCallback;
     service.User = User;
+    service.IsLoggedIn = IsLoggedIn;
 
     return service;
 
@@ -30,12 +31,19 @@
       var user = JSON.parse(idToken.payload);
       if ($sessionStorage.nonce === user.nonce) {
         user.name = user.given_name + ' ' + user.family_name;
+        user.idToken = idToken.raw;
         $sessionStorage.user = user;
+        delete $sessionStorage.nonce;
       }
     }
 
     function User() {
       return $sessionStorage.user;
+    }
+
+    function IsLoggedIn() {
+      var user = $sessionStorage.user;
+      return user !== null && user !== undefined;
     }
 
     function parseUrlData(data) {
@@ -56,6 +64,7 @@
           return {
             header: atob(segments[0]),
             payload: atob(segments[1]),
+            raw:  params[i][1],
           }
         }
       }

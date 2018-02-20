@@ -6,10 +6,16 @@
 
   function configure($stateProvider, $urlRouterProvider) {
     // default route
-    $urlRouterProvider.otherwise("/whoami");
+    $urlRouterProvider.otherwise("/");
 
     // app routes
     $stateProvider
+      .state('home', {
+        url: '/',
+        templateUrl: 'home/index.view.html',
+        controller: 'Home.IndexController',
+        controllerAs: 'vm'
+      })
       .state('whoami', {
         url: '/whoami',
         templateUrl: 'whoami/index.view.html',
@@ -20,6 +26,11 @@
         url: '/auth',
         controller: 'Auth.AuthRequiredController',
         controllerAs: 'vm'
+      })
+      .state('signOut', {
+        url: '/signout',
+        controller: 'Auth.SignOutController',
+        controllerAs: 'vm'
       });
   }
 
@@ -27,7 +38,8 @@
     AuthenticationService.ProcessAuthCallback();
 
     $rootScope.$on('$locationChangeStart', function (event, next, current) {
-      var publicPages = ['/auth'];
+      console.log('path = ' + $location.path());
+      var publicPages = ['', '/', '/auth'];
       var restrictedPage = publicPages.indexOf($location.path()) === -1;
       if (restrictedPage && !AuthenticationService.User()) {
         $location.path('/auth');

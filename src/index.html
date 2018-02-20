@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>DfE Sign-in Angular 1.x sample client</title>
+
+    <style>
+        th{text-align: left;}
+        th,td{padding-right:15px;}
+        td{padding-bottom:5px;}
+    </style>
 </head>
 <body ng-app="app">
 <h1>Sample Angular 1.x OIDC Client</h1>
@@ -17,8 +23,10 @@
 
 <!-- App -->
 <script src="app.js"></script>
+<script src="Home/index.controller.js"></script>
 <script src="WhoAmI/index.controller.js"></script>
 <script src="Auth/authrequired.controller.js"></script>
+<script src="Auth/signout.controller.js"></script>
 <script src="app-services/authentication.service.js"></script>
 </body>
 </html>
