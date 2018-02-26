@@ -4,7 +4,7 @@
   "description": "Angular 1.x sample client to authenticate with DfE Sign-in",
   "main": "index.js",
   "scripts": {
-    "start": "settings='./config/login.dfe.examples.angular-1x.dev.json' node server.js"
+    "start": "settings='config/login.dfe.examples.angular-1x.dev.json' node server.js"
   },
   "repository": {
     "type": "git",
