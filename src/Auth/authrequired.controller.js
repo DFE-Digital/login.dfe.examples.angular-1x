@@ -12,7 +12,7 @@
 
     $sessionStorage.nonce = makeNonce();
 
-    $window.location.href = 'https://login-dfe-oidc.herokuapp.com/auth?client_id=exampleng&response_type=id_token&scope=openid+profile&nonce=' + $sessionStorage.nonce;
+    $window.location.href = 'https://signin-dev-oidc-as.azurewebsites.net/auth?client_id=exampleng&response_type=id_token&scope=openid+profile&nonce=' + $sessionStorage.nonce;
   }
 
   function makeNonce() {
